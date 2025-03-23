@@ -1,0 +1,20 @@
+# Global ignores
+node_modules/
+*.log
+*.cache
+.DS_Store
+Thumbs.db
+
+# Backend ignores
+backend/node_modules/
+backend/.env
+backend/*.log
+
+# Frontend ignores (future-proof)
+frontend/node_modules/
+frontend/*.log
+
+# IDE settings (e.g., VSCode)
+.vscode/
+
+

@@ -20,7 +20,7 @@ const isAuth = async (req,res,next)=>{
             })
         }
         // req.user = decoded this will provide all data from payload
-        req.id = decode.userId;
+        req.id = decode.userId; // this will provide data of user only
         next();
     } catch (error) {
         console.log(error);

@@ -29,7 +29,6 @@ export const registerCompany = async(req,res) =>{
     }
 }
 
-
 export const getCompany = async (req,res)=>{
     try {
         const userId = req.id;//logined user id it means we are getting he iser id of that  company only
@@ -50,7 +49,6 @@ export const getCompany = async (req,res)=>{
         console.log(error);
     }
 }
-
 
 export const getCompanyById = async ( req,res)=>{
     try {

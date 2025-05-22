@@ -12,8 +12,8 @@ import { Button } from './ui/button';
 import { Loader2 } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { USER_API_END_POINT } from '@/utils/constant';
-import { setUser } from '@/redux/authSlice';
+import { USER_API_END_POINT } from '../utils/constant';
+import { setUser } from '../redux/authSlice';
 import { toast } from 'sonner';
 
 const UpdateProfileDialog = ({ open, setOpen }) => {
@@ -26,7 +26,8 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     phoneNumber: user?.phoneNumber || '',
     bio: user?.profile?.bio || '',
     skills: user?.profile?.skills?.join(', ') || '',
-    file: user?.profile?.resume || ''
+    file: user?.profile?.resume || '',
+    profilePhotoFile: null
   });
 
   const dispatch = useDispatch();
@@ -40,6 +41,11 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     setInput({ ...input, file });
   };
 
+  const profilePhotoChangeHandler = e => {
+    const file = e.target.files?.[0];
+    setInput({ ...input, profilePhotoFile: file });
+  };
+
   const submitHandler = async e => {
     e.preventDefault();
     const formData = new FormData();
@@ -50,6 +56,9 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     formData.append('skills', input.skills);
     if (input.file) {
       formData.append('file', input.file);
+    }
+    if (input.profilePhotoFile) {
+      formData.append('profilePhoto', input.profilePhotoFile);
     }
 
     try {
@@ -123,6 +132,21 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                 type="file"
                 accept="application/pdf"
                 onChange={fileChangeHandler}
+                className="bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white file:text-blue-600"
+              />
+            </div>
+
+            {/* Profile Photo Upload */}
+            <div className="flex flex-col space-y-1">
+              <Label htmlFor="profilePhoto" className="text-zinc-700 dark:text-zinc-300">
+                Profile Photo (Image)
+              </Label>
+              <Input
+                id="profilePhoto"
+                name="profilePhoto"
+                type="file"
+                accept="image/*"
+                onChange={profilePhotoChangeHandler}
                 className="bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-white file:text-blue-600"
               />
             </div>

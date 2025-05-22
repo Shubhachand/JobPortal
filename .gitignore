@@ -10,11 +10,10 @@ backend/node_modules/
 backend/.env
 backend/*.log
 
-# Frontend ignores (future-proof)
+# Frontend ignores
 frontend/node_modules/
 frontend/*.log
+frontend/utils/constant.*   # ⬅️ Ignores constant.js, constant.ts, etc.
 
 # IDE settings (e.g., VSCode)
 .vscode/
-
-

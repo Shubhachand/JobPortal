@@ -13,7 +13,8 @@ backend/*.log
 # Frontend ignores
 frontend/node_modules/
 frontend/*.log
-frontend/utils/constant.*   # ⬅️ Ignores constant.js, constant.ts, etc.
-
+# frontend/utils/constant.*   # ⬅️ Ignores constant.js, constant.ts, etc.
+.env
+node_modules
 # IDE settings (e.g., VSCode)
 .vscode/

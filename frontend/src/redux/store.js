@@ -12,7 +12,7 @@ import {
     REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import companySlice from "./CompanySlice";
+import companySlice from "./companySlice";
 import applicationSlice from "./applicationSlice";
 
 const persistConfig = {

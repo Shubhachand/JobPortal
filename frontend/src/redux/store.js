@@ -11,8 +11,8 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import companySlice from "./companySlice";
+import storage from 'redux-persist/lib/storage';
+import companySlice from './companySlice.js';
 import applicationSlice from "./applicationSlice";
 
 const persistConfig = {

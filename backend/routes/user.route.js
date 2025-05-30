@@ -6,7 +6,7 @@ import { singleUpload } from '../middlewares/multer.js';
 
 
 
-router.route("/register").post(singleUpload,register);
+router.route("/register").post(register);
 router.route("/login").post(login);
 router.route("/profile/update").post(isAuth,singleUpload,updateProfile);
 router.route("/logout").get(logout);

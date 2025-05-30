@@ -58,3 +58,12 @@ app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
   
 });
+
+// Global Error Handler (add this at the very bottom)
+app.use((err, req, res, next) => {
+  console.error("🔥 ERROR:", err.stack);
+  res.status(500).json({
+    success: false,
+    message: err.message || "Inter",
+  });
+});
